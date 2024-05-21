@@ -1,0 +1,24 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: #5EC5FF;
+  padding: 20px;
+  margin-bottom: 15px;
+  width: 100%;
+  box-sizing: border-box; /* Include padding in the element's total width and height */
+}
+
+.navbarLink {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.rightAlign {
+  float: right;
+}
