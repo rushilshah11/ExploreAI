@@ -14,37 +14,43 @@ export default function Login() {
 
   return (
     <div className="form-box">
-      <h2 className="loginfont">Login</h2>
+      <h2 className="title titleLogin">Login</h2>
       <form id="loginForm" onSubmit={loginUser}>
-        <label className="loginemailfont" htmlFor="loginEmail">
-          Email:
-        </label>
-        <input
-          className="loginemailbox"
-          type="email"
-          id="loginEmail"
-          name="loginEmail"
-          value={data.email}
-          onChange={(e) => setData({ ...data, email: e.target.value })}
-          required
-        />
+        <div className="textbox">
+          <input
+            className="loginemailbox"
+            placeholder="Email"
+            type="email"
+            id="loginEmail"
+            name="loginEmail"
+            value={data.email}
+            onChange={(e) => setData({ ...data, email: e.target.value })}
+            required
+          />
+        </div>
 
-        <label className="loginpasswordfont" htmlFor="loginPassword">
-          Password:
-        </label>
-        <input
-          className="loginpasswordbox"
-          type="password"
-          id="loginPassword"
-          name="loginPassword"
-          value={data.password}
-          onChange={(e) => setData({ ...data, password: e.target.value })}
-          required
-        />
+        <div className="textbox">
+          <input
+            className="loginpasswordbox"
+            placeholder="Password"
+            type="password"
+            id="loginPassword"
+            name="loginPassword"
+            value={data.password}
+            onChange={(e) => setData({ ...data, password: e.target.value })}
+            required
+          />
+        </div>
 
-        <button className="loginbutton" type="submit">
-          Login
-        </button>
+        <div className="button-wrapper">
+          <button
+            class="submitButton submitButtonLogin"
+            type="button"
+            value="Register"
+          >
+            Login
+          </button>
+        </div>
       </form>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import "./register.css";
+import "./login.css";
 export default function Register() {
   const [data, setData] = useState({
     username: "",
@@ -16,68 +16,71 @@ export default function Register() {
   return (
     <div>
       <div className="form-box">
-        <h2 className="register">Register</h2>
+        <h2 className="title">Create Account</h2>
         <form onSubmit={registerUser} id="registerForm">
-          <label className="registerusernamefont" htmlFor="registerUsername">
-            Username:
-          </label>
-          <input
-            className="registerusername"
-            type="text"
-            id="registerUsername"
-            name="registerUsername"
-            value={data.username}
-            onChange={(e) => setData({ ...data, username: e.target.value })}
-            required
-          />
+          <div className="textbox">
+           
+            <input
+              className="registerusername"
+              placeholder="Username"
+              type="text"
+              id="registerUsername"
+              name="registerUsername"
+              value={data.username}
+              onChange={(e) => setData({ ...data, username: e.target.value })}
+              required
+            />
+          </div>
 
-          <label className="registeremailfont" htmlFor="registerEmail">
-            Email:
-          </label>
-          <input
-            className="registeremail"
-            type="email"
-            id="registerEmail"
-            name="registerEmail"
-            value={data.email}
-            onChange={(e) => setData({ ...data, email: e.target.value })}
-            required
-          />
+          <div className="textbox">
+            
+            <input
+              className="registeremail"
+              placeholder="Email"
+              type="email"
+              id="registerEmail"
+              name="registerEmail"
+              value={data.email}
+              onChange={(e) => setData({ ...data, email: e.target.value })}
+              required
+            />
+          </div>
 
-          <label className="registerpasswordfont" htmlFor="registerPassword">
-            Password:
-          </label>
-          <input
-            className="registerpassword"
-            type="password"
-            id="registerPassword"
-            name="registerPassword"
-            value={data.password}
-            onChange={(e) => setData({ ...data, password: e.target.value })}
-            required
-          />
+          <div className="textbox">
+            
+            <input
+              className="registerpassword"
+              placeholder="Password"
+              type="password"
+              id="registerPassword"
+              name="registerPassword"
+              value={data.password}
+              onChange={(e) => setData({ ...data, password: e.target.value })}
+              required
+            />
+          </div>
 
-          <label
-            className="registerconfirmfont"
-            htmlFor="registerConfirmPassword"
-          >
-            Confirm Password:
-          </label>
-          <input
-            className="registerconfirm"
-            type="password"
-            id="registerConfirmPassword"
-            name="registerConfirmPassword"
-            value={data.confirmPassword}
-            onChange={(e) =>
-              setData({ ...data, confirmPassword: e.target.value })
-            }
-            required
-          />
+          <div className="textbox">
+            
+            <input
+              className="registerconfirm"
+              placeholder="Confirm Password"
+              type="password"
+              id="registerConfirmPassword"
+              name="registerConfirmPassword"
+              value={data.confirmPassword}
+              onChange={(e) =>
+                setData({ ...data, confirmPassword: e.target.value })
+              }
+              required
+            />
+          </div>
 
-          <button className="registerbutton" type="submit">
-            Register
-          </button>
+          <div className="button-wrapper">
+            <button class="submitButton" type="button" value="Register">
+              Sign Up
+            </button>
+          </div>
         </form>
       </div>
     </div>
