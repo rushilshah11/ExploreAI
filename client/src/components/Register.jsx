@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-
+import "./register.css";
 export default function Register() {
   const [data, setData] = useState({
     username: "",
@@ -11,15 +11,18 @@ export default function Register() {
 
   const registerUser = (e) => {
     e.preventDefault();
-  }
+  };
 
   return (
     <div>
       <div className="form-box">
-        <h2>Register</h2>
+        <h2 className="register">Register</h2>
         <form onSubmit={registerUser} id="registerForm">
-          <label htmlFor="registerUsername">Username:</label>
+          <label className="registerusernamefont" htmlFor="registerUsername">
+            Username:
+          </label>
           <input
+            className="registerusername"
             type="text"
             id="registerUsername"
             name="registerUsername"
@@ -28,8 +31,11 @@ export default function Register() {
             required
           />
 
-          <label htmlFor="registerEmail">Email:</label>
+          <label className="registeremailfont" htmlFor="registerEmail">
+            Email:
+          </label>
           <input
+            className="registeremail"
             type="email"
             id="registerEmail"
             name="registerEmail"
@@ -38,8 +44,11 @@ export default function Register() {
             required
           />
 
-          <label htmlFor="registerPassword">Password:</label>
+          <label className="registerpasswordfont" htmlFor="registerPassword">
+            Password:
+          </label>
           <input
+            className="registerpassword"
             type="password"
             id="registerPassword"
             name="registerPassword"
@@ -48,8 +57,14 @@ export default function Register() {
             required
           />
 
-          <label htmlFor="registerConfirmPassword">Confirm Password:</label>
+          <label
+            className="registerconfirmfont"
+            htmlFor="registerConfirmPassword"
+          >
+            Confirm Password:
+          </label>
           <input
+            className="registerconfirm"
             type="password"
             id="registerConfirmPassword"
             name="registerConfirmPassword"
@@ -60,7 +75,9 @@ export default function Register() {
             required
           />
 
-          <button type="submit">Register</button>
+          <button className="registerbutton" type="submit">
+            Register
+          </button>
         </form>
       </div>
     </div>
