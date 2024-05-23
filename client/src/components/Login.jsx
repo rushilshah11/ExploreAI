@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import axios from "axios";
 import "./login.css";
 
 export default function Login() {
@@ -10,12 +11,18 @@ export default function Login() {
 
   const loginUser = (e) => {
     e.preventDefault();
+    try {
+      const response = axios.get("/");
+      console.log(response.data);
+    } catch (error) {
+      console.error("There was an error!", error);
+    }
   };
 
   return (
     <div className="form-box">
       <h2 className="title titleLogin">Login</h2>
-      <form id="loginForm" onSubmit={loginUser}>
+      <form id="loginForm">
         <div className="textbox">
           <input
             className="loginemailbox"
@@ -44,9 +51,10 @@ export default function Login() {
 
         <div className="button-wrapper">
           <button
-            class="submitButton submitButtonLogin"
+            className="submitButton submitButtonLogin"
             type="button"
             value="Register"
+            onClick={loginUser}
           >
             Login
           </button>

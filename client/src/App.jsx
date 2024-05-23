@@ -4,6 +4,10 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import LoginOrRegister from "./pages/LoginOrRegister";
+import axios from "axios";
+
+axios.defaults.baseURL = 'http://localhost:8000';
+axios.defaults.withCredentials = true;
 
 function App() {
   return (
@@ -15,6 +19,6 @@ function App() {
       </Routes>
     </>
   );
-}
+} 
 
 export default App;

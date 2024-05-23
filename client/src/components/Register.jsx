@@ -19,7 +19,6 @@ export default function Register() {
         <h2 className="title">Create Account</h2>
         <form onSubmit={registerUser} id="registerForm">
           <div className="textbox">
-           
             <input
               className="registerusername"
               placeholder="Username"
@@ -33,7 +32,6 @@ export default function Register() {
           </div>
 
           <div className="textbox">
-            
             <input
               className="registeremail"
               placeholder="Email"
@@ -47,7 +45,6 @@ export default function Register() {
           </div>
 
           <div className="textbox">
-            
             <input
               className="registerpassword"
               placeholder="Password"
@@ -61,7 +58,6 @@ export default function Register() {
           </div>
 
           <div className="textbox">
-            
             <input
               className="registerconfirm"
               placeholder="Confirm Password"
@@ -77,7 +73,7 @@ export default function Register() {
           </div>
 
           <div className="button-wrapper">
-            <button class="submitButton" type="button" value="Register">
+            <button className="submitButton" type="button" value="Register">
               Sign Up
             </button>
           </div>
