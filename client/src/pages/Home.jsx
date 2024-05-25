@@ -7,7 +7,7 @@ export default function Chat() {
     chat: "",
   });
 
-  const loginUser = (e) => {
+  const chatUser = (e) => {
     e.preventDefault();
   };
   return (
