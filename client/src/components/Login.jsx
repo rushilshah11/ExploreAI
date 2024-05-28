@@ -1,21 +1,36 @@
-import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import "./login.css";
 
 export default function Login() {
+  const navigate = useNavigate();
   const [data, setData] = useState({
     email: "",
     password: "",
   });
 
-  const loginUser = (e) => {
+  const loginUser = async (e) => {
     e.preventDefault();
+    const { email, password } = data;
     try {
-      const response = axios.get("/");
-      console.log(response.data);
-    } catch (error) {
-      console.error("There was an error!", error);
+      const response = await axios.post("/login", {
+        email,
+        password,
+      });
+
+      if (response.data.error) {
+        toast.error(data.error);
+      } else {
+        localStorage.setItem("token", response.data.token); // Store the token in localStorage
+        localStorage.setItem("user", JSON.stringify(response.data.user)); // Store user data in localStorage
+        setData({ email: "", password: "" });
+        toast.success("Login Successful! Welcome");
+        navigate("/");
+      }
+    } catch (err) {
+      console.log(err);
     }
   };
 

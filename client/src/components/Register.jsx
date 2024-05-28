@@ -1,7 +1,11 @@
-import React from "react";
 import { useState } from "react";
+import axios from "axios";
 import "./login.css";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+
 export default function Register() {
+  const navigate = useNavigate();
   const [data, setData] = useState({
     username: "",
     email: "",
@@ -9,8 +13,27 @@ export default function Register() {
     confirmPassword: "",
   });
 
-  const registerUser = (e) => {
+  const registerUser = async (e) => {
     e.preventDefault();
+    const { username, email, password, confirmPassword } = data;
+    try {
+      const { data } = await axios.post("/register", {
+        username,
+        email,
+        password,
+        confirmPassword,
+      });
+
+      if (data.error) {
+        toast.error(data.error);
+      } else{
+        setData({});
+        toast.success("Register Successful! Welcome");
+        navigate("/");
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -73,7 +96,12 @@ export default function Register() {
           </div>
 
           <div className="button-wrapper">
-            <button className="submitButton" type="button" value="Register">
+            <button
+              className="submitButton"
+              onClick={registerUser}
+              type="button"
+              value="Register"
+            >
               Sign Up
             </button>
           </div>
